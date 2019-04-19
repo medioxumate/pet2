@@ -29,7 +29,34 @@ $f3->route('GET /', function(){
     $view = new Template();
     echo $view->render('views/home.html');
 });
+
 $f3->route('GET /order', function(){
     $view = new Template();
     echo $view->render('views/order.html');
 });
+
+$f3->route('GET /@animal', function($f3, $params) {
+    $animal= $params['animal'];
+
+    switch($animal) {
+        case 'dog':
+            echo "<h3>$animal says woof</h3>";
+            break;
+        case 'cat':
+            echo "<h3>$animal says meow</h3>";
+            break;
+        case 'chicken':
+            echo "<h3>$animal says cluck</h3>";
+            break;
+        case 'lion':
+            echo "<h3>$animal says roar</h3>";
+            break;
+        case 'fish':
+            echo "<h3>$animal says woosh</h3>";
+            break;
+        default:
+            $f3->error(404);
+    }
+});
+
+$f3->run();
