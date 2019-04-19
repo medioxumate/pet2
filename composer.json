@@ -1,0 +1,16 @@
+{
+  "name": "tokiehn/328/pet2",
+  "authors": [
+  {
+    "name": "Brian Kiehn",
+    "email": "bkiehn@greenriver.mail.edu"
+  },
+    {
+      "name": "Sang Le",
+      "email": "Sle11@greenriver.mail.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
