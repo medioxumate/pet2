@@ -18,6 +18,9 @@ session_start();
 //Require autoload file
 require_once('vendor/autoload.php');
 
+// Validation file
+require_once('model/validation-functions.php');
+
 //create an instance of the Base class/ fat free object
 //instantiate fat free
 $f3 = Base::instance();
@@ -34,7 +37,21 @@ $f3->route('GET /', function(){
     echo $view->render('views/home.html');
 });
 
-$f3->route('GET|POST /order', function(){
+$f3->route('GET|POST /order', function($f3){
+    $_SESSION = array();
+
+    if(isset($_POST['animal'])) {
+        $animal = $_POST['animal'];
+
+        if(validString($animal)) {
+            $_SESSION['animal'] = $animal;
+            $f3->reroute('/order2');
+        }
+        else {
+            $f3->set("error['animal']", "Please enter an animal");
+        }
+    }
+
     $view = new Template();
     echo $view->render('views/form1.html');
 });
