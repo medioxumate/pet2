@@ -9,6 +9,9 @@
         <label>
             Animal
             <input type="text" name="animal">
+            <check if="{{isset(@error['animal'])}}">
+                <p>{{@error['animal']}}</p>
+            </check>
         </label>
         <button type="submit">submit</button>
     </form>
