@@ -21,6 +21,7 @@ require_once('vendor/autoload.php');
 //create an instance of the Base class/ fat free object
 //instantiate fat free
 $f3 = Base::instance();
+$f3->set('color', array('pink', 'green', 'blue'));
 
 //turn on fatfree error reporting
 //debugging in fat free is difficult
